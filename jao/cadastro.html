@@ -1,0 +1,142 @@
+<?php
+    require 'conexao.php';
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #6e8efb;
+            box-shadow: 0 0 8px rgba(110, 142, 251, 0.6);
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #a777e3, #6e8efb);
+            transform: scale(1.02);
+        }
+
+        .note {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cadastro de Produto</h1>
+        <form action="gravar.php" method="post">
+            <label for="product-name">Nome do Produto:</label>
+            <input type="text" id="product-name" name="product_name" required>
+
+            <label for="product-description">Descrição:</label>
+            <textarea id="product-description" name="product_description" rows="4" required></textarea>
+
+            <label for="product-marca">Marca:</label>
+            <input type="text" id="product-marca" name="product_marca" required>
+
+            <label for="product-forne">Fornecedor:</label>
+            <input type="text" id="product-forne" name="product_fornecedor" required>
+
+            <label for="product-price">Preço:</label>
+            <input type="number" id="product-price" name="product_price" step="0.01" required>
+
+            <label for="product-category">Categoria:</label>
+            <select id="product-category" name="product_category" required>
+                <option value="" disabled selected>Selecione uma categoria</option>
+                <option value="eletronicos">Eletrônicos</option>
+                <option value="roupas">Roupas</option>
+                <option value="alimentos">Alimentos</option>
+                <option value="acessorios">Acessórios</option>
+                <option value="veiculos">Veículos</option>
+            </select>
+
+            <button type="submit">Cadastrar Produto</button>
+        </form>
+        <div class="note">
+            <h3>João é lindo</h3>
+        </div>
+    </div>
+</body>
+</html>
